@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +14,14 @@
 
         body {
             font-family: 'Georgia', sans-serif;
-            background-color: #f095e1; /* Vibrant lavender background */
-        }
+            background-image: url("images/mingming.gif");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
+  
+    }
+            /* Vibrant lavender background */
+        
 
         .container {
             max-width: 1200px;
@@ -25,7 +32,8 @@
 
         h1 {
             margin-bottom: 20px;
-            color: #961eeb; /* Dark lavender text */
+            color: #e6d8f0;
+            /* Dark lavender text */
             font-size: 2.5rem;
         }
 
@@ -40,7 +48,7 @@
             background-color: #d640db;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 210px;
             overflow: hidden;
             transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
@@ -62,7 +70,8 @@
         }
 
         .card h3 {
-            color: #060007; /* Darker text */
+            color: #060007;
+            /* Darker text */
             font-size: 1.4rem;
             margin-bottom: 10px;
         }
@@ -75,13 +84,15 @@
 
         .card a {
             text-decoration: none;
-            color: #65097c; /* Link color */
+            color: #65097c;
+            /* Link color */
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         .card a:hover {
-            color: #8A2BE2; /* Link hover effect */
+            color: #8A2BE2;
+            /* Link hover effect */
         }
 
         /* Upload button */
@@ -106,16 +117,23 @@
         .upload-label:hover {
             background-color: #9370DB;
         }
-    </style>
-</head>
-<body>
+        .body  {
+            background-image: url("bg.jpg");
+            
+    }
 
+       </style>
+</head>
+
+<body>
+   
     <div class="container">
         <h1>My Projects</h1>
         <div class="projects">
             <!-- Card 1 with file upload -->
             <div class="card">
-                <img src="https://i.pinimg.com/enabled_lo/1200x/0d/7d/31/0d7d31e8050761e89ee0f697386e9c40.jpg" alt="Project 1" id="project-image-1">
+                <img src="https://i.pinimg.com/enabled_lo/1200x/0d/7d/31/0d7d31e8050761e89ee0f697386e9c40.jpg"
+                    alt="Project 1" id="project-image-1">
                 <div class="card-content">
                     <h3>Project 1</h3>
                     <p>This project is about...</p>
@@ -128,7 +146,8 @@
 
             <!-- Card 2 with file upload -->
             <div class="card">
-                <img src="https://i.pinimg.com/564x/b7/d4/c9/b7d4c9283ae894f7bb39ab348de02a49.jpg" alt="Project 2" id="project-image-2">
+                <img src="https://i.pinimg.com/564x/b7/d4/c9/b7d4c9283ae894f7bb39ab348de02a49.jpg" alt="Project 2"
+                    id="project-image-2">
                 <div class="card-content">
                     <h3>Project 2</h3>
                     <p>This project is about...</p>
@@ -146,7 +165,7 @@
     <script>
         function previewImage(event, cardNumber) {
             const reader = new FileReader();
-            reader.onload = function(){
+            reader.onload = function () {
                 const output = document.getElementById('project-image-' + cardNumber);
                 output.src = reader.result;
             };
@@ -155,4 +174,5 @@
     </script>
 
 </body>
+
 </html>
