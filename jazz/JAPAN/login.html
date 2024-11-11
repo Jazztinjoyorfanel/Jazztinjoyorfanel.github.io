@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style_1.css" />
+    <title>Sign in & Sign up Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <!-- Sign-in Form -->
+          <form id="signInForm" class="sign-in-form">
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="signInEmail" placeholder="Email" required />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="signInPassword" placeholder="Password" required />
+            </div>
+            <a href="forgotpassword.html" class="forgot-password">Forgot Password?</a>
+            <input type="submit" value="Login" class="btn solid" />
+          </form>
+
+          <script>
+            // JavaScript to handle login and redirect to index.html
+            const signInForm = document.getElementById('signInForm');
+      
+            signInForm.addEventListener('submit', function (e) {
+              e.preventDefault(); // Prevent form submission
+      
+              const email = document.getElementById('signInEmail').value;
+              const password = document.getElementById('signInPassword').value;
+      
+              // Simple validation: Ensure both fields are filled
+              if (email === '' || password === '') {
+                alert('Please fill in both fields.');
+              } else {
+                // Simulate a successful login
+                alert('Login successful!');
+                window.location.href = 'index.html'; // Redirect to index.html
+              }
+            });
+          </script>
+
+          <!-- Sign-up Form -->
+          <form id="signUpForm" class="sign-up-form">
+            <h2 class="title">Sign up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" id="fullName" placeholder="Full name" required />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="signUpEmail" placeholder="Email" required />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="signUpPassword" placeholder="Password" required />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="confirmPassword" placeholder="Confirm password" required />
+            </div>
+            <label for="terms">
+              <input type="checkbox" id="terms" required />
+              I agree to the <a href="terms_and_conditions.html" target="_blank">Terms and Conditions</a>
+            </label>
+            <input type="submit" class="btn" value="Sign up" />
+          </form>
+        </div>
+      </div>
+
+      <!-- Panel Section -->
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here?</h3>
+            <p>We’re so glad you’ve chosen to visit us. At Bloom Haven, we believe in the magic of flowers to bring joy and beauty into your life.</p>
+            <button class="btn transparent" id="sign-up-btn">Sign up</button>
+          </div>
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>One of us?</h3>
+            <p>Whether you're looking for the perfect bouquet, a special arrangement, or just a little floral inspiration, we're here to help!</p>
+            <button class="btn transparent" id="sign-in-btn">Sign in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
