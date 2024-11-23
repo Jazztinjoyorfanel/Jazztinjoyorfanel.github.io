@@ -14,12 +14,12 @@
     <div class="container text-center">
         <h1>Attack on Titan - Titan Search</h1>
         <p>Enter a Titan's name to fetch their information.</p>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" style="justify-content: center;">
             <input type="text" class="form-control" placeholder="Search Titan..." id="searchBar">
-            <button class="btn btn-dark" onclick="searchTitan()">Search</button>
+            <button class="btn btn-dark" onclick="searchTitan()">Get Titan</button>
         </div>
         <div id="resultCard" class="card d-none p-4">
-            <img id="titanImage" src="" alt="Titan Image">
+            <img id="titanImage" src="" alt="Titan Image" class="card-img-left">
             <div class="card-body">
                 <h5 class="card-title" id="titanName">Name: N/A</h5>
                 <p class="card-text" id="titanHeight">Height: N/A</p>
@@ -28,6 +28,8 @@
                 <p class="card-text" id="titanAbilities">Abilities: N/A</p>
             </div>
         </div>
+    </div>
+    
         <p id="errorMessage" class="text-danger mt-3"></p>
     </div>
 
