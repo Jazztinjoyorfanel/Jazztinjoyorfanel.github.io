@@ -1,4 +1,4 @@
-const searchTitan = async () => {
+    const searchTitan = async () => {
     const searchBar = document.getElementById("searchBar");
     const searchTerm = searchBar.value.toLowerCase().trim();
   
