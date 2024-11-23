@@ -1,4 +1,4 @@
-    const searchTitan = async () => {
+const searchTitan = async () => {
     const searchBar = document.getElementById("searchBar");
     const searchTerm = searchBar.value.toLowerCase().trim();
   
@@ -36,24 +36,29 @@
         titanName.textContent = `Name: ${titan.name}`;
         titanHeight.textContent = `Height: ${titan.height}`;
         titanAllegiance.textContent = `Allegiance: ${Array.isArray(titan.allegiance) ? titan.allegiance.join(", ") : titan.allegiance}`;
-        titanAbilities.textContent = `Abilities: ${titan.abilities.join(", ")}`;
+        titanAbilities.textContent = `Abilities: ${Array.isArray(titan.abilities) ? titan.abilities.join(", ") : "N/A"}`;
   
         // Handle Titan Image
-        console.log("Titan Image URL: ", titan.img); // Debug image URL
-        titanImage.src = "";
-        titanImage.src = titan.img || "https://via.placeholder.com/300";
+        const imageUrl = titan.img || "https://via.placeholder.com/300";
+        console.log("Titan Image URL: ", imageUrl); // Debug image URL
+        titanImage.src = imageUrl;
   
         // Handle image loading error
-        titanImage.onerror = () => {
-            console.error("Error loading image, using placeholder.");
+        titanImage.onerror = (event) => {
+            console.error("Error loading image:", event, "using placeholder.");
             titanImage.src = "https://via.placeholder.com/300";  // Fallback image
         };
   
         // Fetch and display current inheritor's name
         if (titan.current_inheritor) {
-            const inheritorResponse = await fetch(titan.current_inheritor);
-            const inheritorData = await inheritorResponse.json();
-            titanInheritor.textContent = `Current Inheritor: ${inheritorData.name || "Unknown"}`;
+            try {
+                const inheritorResponse = await fetch(titan.current_inheritor);
+                const inheritorData = await inheritorResponse.json();
+                titanInheritor.textContent = `Current Inheritor: ${inheritorData.name || "Unknown"}`;
+            } catch (error) {
+                console.error("Error fetching inheritor data:", error);
+                titanInheritor.textContent = "Current Inheritor: Unknown";
+            }
         } else {
             titanInheritor.textContent = "Current Inheritor: Unknown";
         }
@@ -61,7 +66,7 @@
         // Show the result card
         resultCard.classList.remove("d-none");
     } catch (error) {
-        console.error("Error fetching Titan data:", error.message);
+        console.error("Error fetching Titan data:", error);
         errorMessage.textContent = "Failed to fetch Titan information. Please try again later.";
     }
-  };
+};
