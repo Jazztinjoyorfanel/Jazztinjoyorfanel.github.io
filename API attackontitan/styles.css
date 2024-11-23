@@ -1,6 +1,7 @@
-html, body {
-    height: 100%; /* Ensures the background covers the entire screen */
-    margin: 0;    /* Removes any default margin */
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
 
 body {
@@ -9,26 +10,80 @@ body {
     background-position: center;
     background-size: cover;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .container {
     margin-top: 50px;
+    z-index: 1;
+    position: relative;
+    padding: 20px;
+    flex: 1;
 }
+
+.form-control {
+    width: 80%;
+    max-width: 600px;
+    margin: 0;
+    padding: 12px 15px;
+    display: inline-block;
+}
+
+.btn-dark {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0;
+}
+
+.btn-dark:hover {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+
 .card {
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     border: none;
     border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    max-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 5%;
 }
-#titanImage {
+
+.card-img-left {
     border-radius: 10px;
     max-width: 100%;
     max-height: 300px;
     object-fit: cover;
+    margin-right: 20px;
 }
 
-/* Text Styling */
-.text-container .h3, 
+.card-body {
+    padding: 20px;
+    text-align: left;
+}
+
+h1 {
+    font-weight: bold;
+    color: white;
+    font-size: 2em;
+}
+
+.text-container .h3,
 .text-container .h5 {
     margin: 10px 0;
     text-align: left;
@@ -43,50 +98,26 @@ body {
     font-size: 1.2em;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    body {
-        background-image: url(https://i.pinimg.com/736x/04/32/6e/04326ee30ed5ca2219ef14b1e67561cf.jpg);
-    }
-    
-    .card {
-        padding: 15px;
-        margin: 15px;
-    }
-
-    .imgContainer {
-        width: 90%; 
-    }
-
-    .btn-secondary {
-        width: 50%;
-        padding: 12px; 
-    }
-
-    .form-control {
-        width: 100%;
-    }
-
-    .text-container {
-        text-align: center;
-    }
+#resultCard.d-none {
+    display: none;
 }
 
-@media (max-width: 480px) {
-    .btn-secondary {
-        width: 70%;
-        font-size: 14px;
+@media (max-width: 768px) {
+    body {
+        background-image: url('https://i.pinimg.com/736x/26/4b/1d/264b1d0c02028dcfbef4c7b4a02a2c7d.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        margin: 0;
     }
 
-    .form-control {
-        font-size: 14px;
+    .card {
+        flex-direction: column;
     }
 
-    .text-container .h3 {
-        font-size: 1.5em;
-    }
-
-    .text-container .h5 {
-        font-size: 1em;
+    .card-img-left {
+        margin-right: 0;
+        max-height: 90%;
     }
 }
